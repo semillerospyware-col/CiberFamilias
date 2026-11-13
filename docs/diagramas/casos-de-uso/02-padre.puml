@@ -1,0 +1,41 @@
+@startuml CU_02_Padre
+title CiberFamilias - Casos de uso del Padre / Cuidador
+left to right direction
+skinparam packageStyle rectangle
+actor "Padre / Cuidador" as P
+actor "Servicio de correo" as M <<sistema>>
+rectangle "CiberFamilias" {
+  usecase "CU-03 Unirse a grupo\ncon código" as CU03
+  usecase "CU-04 Vincular hijo" as CU04
+  usecase "Enviar invitación" as INV
+  usecase "CU-06 Otorgar\nconsentimiento" as CU06
+  usecase "CU-07 Explorar\nRuta Padres" as CU07
+  usecase "CU-08 Ver lección" as CU08
+  usecase "CU-09 Jugar minijuego" as CU09
+  usecase "Registrar resultado" as RR
+  usecase "CU-11 Calificar actividad" as CU11
+  usecase "CU-12 Ver mi progreso" as CU12
+  usecase "CU-13 Ver progreso\ndel hijo" as CU13
+  usecase "CU-14 Lanzar reto familiar" as CU14
+  usecase "CU-15 Enviar duda" as CU15
+}
+P --> CU03
+P --> CU04
+P --> CU06
+P --> CU07
+P --> CU08
+P --> CU09
+P --> CU12
+P --> CU13
+P --> CU14
+P --> CU15
+CU04 ..> INV : <<include>>
+INV --> M
+CU09 ..> RR : <<include>>
+CU11 ..> CU09 : <<extend>>
+CU14 ..> CU09 : <<include>>
+note right of CU13
+  Requiere un vínculo activo
+  (CU-04 aceptado en CU-05)
+end note
+@enduml

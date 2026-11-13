@@ -1,0 +1,38 @@
+@startuml CU_03_Docente
+title CiberFamilias - Casos de uso del Docente
+left to right direction
+skinparam packageStyle rectangle
+actor "Docente" as D
+rectangle "CiberFamilias" {
+  usecase "CU-16 Gestionar grupos" as CU16
+  usecase "Generar código de clase" as COD
+  usecase "CU-17 Asignar módulos" as CU17
+  usecase "CU-18 Crear / editar juego" as CU18
+  usecase "Elegir plantilla" as PLA
+  usecase "Etiquetar conceptos" as TAG
+  usecase "Previsualizar juego" as PRE
+  usecase "Importar CSV" as CSV
+  usecase "CU-19 Publicar anuncio" as CU19
+  usecase "CU-20 Consultar dashboard" as CU20
+  usecase "Filtrar datos" as FIL
+  usecase "Ver detalle\nde estudiante" as DET
+  usecase "Analizar falencias" as FAL
+  usecase "CU-21 Exportar reporte" as CU21
+  usecase "CU-22 Responder dudas" as CU22
+}
+D --> CU16
+D --> CU17
+D --> CU18
+D --> CU19
+D --> CU20
+D --> CU22
+CU16 ..> COD : <<include>>
+CU18 ..> PLA : <<include>>
+CU18 ..> TAG : <<include>>
+CU18 ..> PRE : <<include>>
+CSV ..> CU18 : <<extend>>
+CU20 ..> FIL : <<include>>
+DET ..> CU20 : <<extend>>
+FAL ..> CU20 : <<extend>>
+CU21 ..> CU20 : <<extend>>
+@enduml

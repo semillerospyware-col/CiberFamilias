@@ -1,0 +1,39 @@
+@startuml Componentes_CiberFamilias
+title CiberFamilias - Diagrama de componentes
+skinparam componentStyle uml2
+package "Cliente (navegador)" {
+  [SPA React] as SPA
+  [Motor de juegos] as GAME
+  [Dashboard docente] as DASH
+}
+package "API (Node.js)" {
+  [Autenticación y roles] as AUTH
+  [Usuarios y familias] as USR
+  [Contenido y rutas] as CONT
+  [Puntaje y gamificación] as SCORE
+  [Eventos y analítica] as EVT
+  [Reportes] as REP
+}
+database "PostgreSQL" as DB
+cloud "Almacenamiento de objetos" as S3
+[Worker planificador] as WK
+cloud "Servicio de correo" as MAIL
+
+SPA --> AUTH : inicia sesión
+SPA --> USR : grupos y vínculos
+SPA --> CONT : rutas y lecciones
+GAME --> CONT : carga contenido
+GAME --> SCORE : envía resultado
+GAME --> EVT : envía eventos
+DASH --> EVT : consulta métricas
+DASH --> REP : exporta
+SCORE --> EVT
+AUTH --> DB
+USR --> DB
+CONT --> DB
+CONT --> S3
+EVT --> DB
+REP --> DB
+WK --> DB : agrega métricas
+WK --> MAIL : envía correos
+@enduml

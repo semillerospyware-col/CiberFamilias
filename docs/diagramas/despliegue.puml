@@ -1,0 +1,28 @@
+@startuml Despliegue_CiberFamilias
+title CiberFamilias - Diagrama de despliegue
+node "Dispositivo del usuario" <<dispositivo>> {
+  node "Navegador web" {
+    artifact "SPA React" as spa
+  }
+}
+node "CDN / hosting estático" <<servidor>> {
+  artifact "index.html + JS + CSS" as static
+}
+node "Servidor de aplicaciones" <<contenedor Docker>> {
+  component "API Node.js" as api
+}
+node "Servidor de tareas" <<contenedor Docker>> {
+  component "Worker planificador (cron)" as wk
+}
+database "PostgreSQL 16" <<servidor BD>> as db
+storage "Almacenamiento de objetos (S3)" as s3
+cloud "Servicio de correo" as mail
+
+spa ..> static : HTTPS (descarga)
+spa --> api : HTTPS REST/JSON
+spa --> s3 : HTTPS URLs firmadas
+api --> db : TCP 5432
+api --> s3 : HTTPS
+wk --> db : TCP 5432
+wk --> mail : SMTP 587
+@enduml

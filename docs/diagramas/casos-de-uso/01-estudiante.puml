@@ -1,0 +1,38 @@
+@startuml CU_01_Estudiante
+title CiberFamilias - Casos de uso del Estudiante
+left to right direction
+skinparam packageStyle rectangle
+actor "Estudiante" as E
+rectangle "CiberFamilias" {
+  usecase "CU-03 Unirse a grupo\ncon código" as CU03
+  usecase "CU-05 Aceptar vinculación\ncon padre" as CU05
+  usecase "CU-07 Explorar ruta\nde aprendizaje" as CU07
+  usecase "CU-08 Ver lección" as CU08
+  usecase "CU-09 Jugar minijuego" as CU09
+  usecase "Registrar resultado" as RR
+  usecase "Ver retroalimentación" as RET
+  usecase "Obtener insignia" as INS
+  usecase "CU-10 Responder quiz\nde cierre" as CU10
+  usecase "CU-11 Calificar actividad" as CU11
+  usecase "CU-12 Ver mi progreso\ne insignias" as CU12
+  usecase "Ver tabla de posiciones" as RANK
+  usecase "CU-14 Jugar reto familiar" as CU14
+  usecase "CU-15 Enviar duda" as CU15
+}
+E --> CU03
+E --> CU05
+E --> CU07
+E --> CU08
+E --> CU09
+E --> CU10
+E --> CU12
+E --> CU14
+E --> CU15
+CU09 ..> RR : <<include>>
+CU10 ..> RR : <<include>>
+RET ..> CU09 : <<extend>>
+INS ..> CU09 : <<extend>>
+CU11 ..> CU09 : <<extend>>
+RANK ..> CU12 : <<extend>>
+CU14 ..> CU09 : <<include>>
+@enduml

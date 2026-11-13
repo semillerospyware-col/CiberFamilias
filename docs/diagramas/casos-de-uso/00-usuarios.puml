@@ -1,0 +1,26 @@
+@startuml CU_00_Usuarios
+title CiberFamilias - Generalización de actores y casos comunes
+left to right direction
+skinparam packageStyle rectangle
+actor "Usuario" as U
+actor "Estudiante" as E
+actor "Padre / Cuidador" as P
+actor "Docente" as D
+actor "Administrador" as A
+actor "Servicio de correo" as M <<sistema>>
+U <|-- E
+U <|-- P
+U <|-- D
+U <|-- A
+rectangle "CiberFamilias" {
+  usecase "CU-01 Registrarse" as CU01
+  usecase "CU-02 Iniciar sesión" as CU02
+  usecase "Recuperar contraseña" as REC
+  usecase "Editar perfil" as PER
+}
+U --> CU01
+U --> CU02
+U --> PER
+REC ..> CU02 : <<extend>>
+REC --> M
+@enduml

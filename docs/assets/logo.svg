@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Logo CiberFamilias">
+  <title>CiberFamilias</title>
+  <!-- Escudo -->
+  <path d="M60 8 L102 22 V56 C102 84 84 102 60 112 C36 102 18 84 18 56 V22 Z"
+        fill="#0F766E"/>
+  <path d="M60 16 L95 27.5 V56 C95 79.5 80 95 60 104 C40 95 25 79.5 25 56 V27.5 Z"
+        fill="none" stroke="#5EEAD4" stroke-width="2"/>
+  <!-- Familia: adulto, estudiante, adulto -->
+  <circle cx="44" cy="46" r="7" fill="#FFFFFF"/>
+  <path d="M33 74 C33 62 38 57 44 57 C50 57 55 62 55 74 Z" fill="#FFFFFF"/>
+  <circle cx="76" cy="46" r="7" fill="#FFFFFF"/>
+  <path d="M65 74 C65 62 70 57 76 57 C82 57 87 62 87 74 Z" fill="#FFFFFF"/>
+  <circle cx="60" cy="56" r="6" fill="#5EEAD4"/>
+  <path d="M51 80 C51 70 55 66 60 66 C65 66 69 70 69 80 Z" fill="#5EEAD4"/>
+  <!-- Candado -->
+  <rect x="52" y="84" width="16" height="12" rx="2.5" fill="#FFFFFF"/>
+  <path d="M55 84 V80.5 C55 77.5 57.2 75.5 60 75.5 C62.8 75.5 65 77.5 65 80.5 V84"
+        fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+  <circle cx="60" cy="90" r="1.8" fill="#0F766E"/>
+</svg>

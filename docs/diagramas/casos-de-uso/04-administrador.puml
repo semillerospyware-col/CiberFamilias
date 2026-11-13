@@ -1,0 +1,24 @@
+@startuml CU_04_Administrador
+title CiberFamilias - Casos de uso del Administrador
+left to right direction
+skinparam packageStyle rectangle
+actor "Administrador" as A
+rectangle "CiberFamilias" {
+  usecase "CU-23 Gestionar usuarios\ne instituciones" as CU23
+  usecase "Desactivar usuario" as DES
+  usecase "Restablecer contraseña" as RES
+  usecase "Asignar rol" as ROL
+  usecase "CU-24 Gestionar\ncatálogo base" as CU24
+  usecase "Gestionar rutas\ny módulos" as RUT
+  usecase "Gestionar plantillas\nde juego" as PLT
+  usecase "CU-25 Ver métricas\nglobales y auditoría" as CU25
+}
+A --> CU23
+A --> CU24
+A --> CU25
+CU23 ..> ROL : <<include>>
+DES ..> CU23 : <<extend>>
+RES ..> CU23 : <<extend>>
+CU24 ..> RUT : <<include>>
+CU24 ..> PLT : <<include>>
+@enduml
